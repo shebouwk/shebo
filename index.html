@@ -2,106 +2,143 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>اعتذار لملاكي</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رسالة اعتذار خاصة 🥺</title>
+    <meta property="og:title" content="رسالة خاصة لملاكي 🥺">
+    <meta property="og:description" content="اتمنى تفتحي الرابط ده.. انا اسف">
     <style>
         body {
-            margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; 
-            height: 100vh; width: 100vw;
-            /* تم وضع رابط صورتك هنا */
-            background: url('https://i.ibb.co/fdzJmcYP/download-15.jpg') no-repeat center center fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://i.ibb.co/fdzJmcYP/download-15.jpg');
             background-size: cover;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            overflow: hidden; touch-action: none;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
         }
-        body::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1; }
-        
-        .card { 
-            position: relative; background: rgba(255, 255, 255, 0.95); 
-            padding: 30px; border-radius: 25px; text-align: center; 
-            width: 85%; max-width: 400px; z-index: 10; backdrop-filter: blur(10px); 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        body::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.2); z-index: 0;
         }
-
-        h1 { color: #d90429; font-size: 1.8rem; margin: 0 0 15px 0; }
-        p { color: #333; font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px; font-weight: 600; }
-
-        .btn-container {
-            display: flex; justify-content: center; align-items: center;
-            gap: 15px; position: relative; width: 100%; height: 60px;
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            max-width: 420px;
+            width: 90%;
+            z-index: 1;
+            backdrop-filter: blur(5px);
         }
-
-        .btn-yes { 
-            background: linear-gradient(45deg, #ef233c, #d90429);
-            color: white; border: none; padding: 12px 25px; 
-            font-size: 1.1rem; border-radius: 50px; cursor: pointer; 
-            font-weight: bold; z-index: 11; min-width: 110px;
+        h1 {
+            color: #d90429;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
-
-        .btn-no { 
-            background: #6c757d; color: white; border: none; 
-            padding: 12px 20px; font-size: 1.1rem; border-radius: 50px; 
-            cursor: pointer; font-weight: bold; transition: all 0.2s ease;
-            z-index: 999; min-width: 110px; white-space: nowrap;
-            position: relative; 
+        .buttons-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            min-height: 50px;
         }
+        .btn {
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yesBtn {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            color: white;
+            min-width: 120px;
+        }
+        #noBtn {
+            background-color: #6c757d;
+            color: white;
+            position: relative;
+            z-index: 999;
+            min-width: 110px;
+        }
+        #message {
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 
-        #success { display: none; }
-        .particle { position: fixed; pointer-events: none; z-index: 1000; animation: fly 2.5s ease-out forwards; }
-        @keyframes fly { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(-120vh) rotate(720deg); opacity: 0; } }
+        .success-text {
+            font-size: 1.8rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .final-text {
+            font-size: 1.15rem;
+            color: #333;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+        .success-gif {
+            width: 100%;
+            max-width: 180px;
+            border-radius: 15px;
+            margin: 15px auto;
+            display: block;
+        }
+        .particle {
+            position: fixed; pointer-events: none; z-index: 1000;
+            animation: flyUp 2.5s linear forwards;
+        }
+        @keyframes flyUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div id="ask">
+    <div class="container">
+        <div id="askContainer">
             <div style="font-size: 3rem; margin-bottom: 10px;">🥺</div>
-            <h1>أنا آسف.. ❤️</h1>
-            <p>اسف على اى حاجه وحشه عملتها وزعلتك حتى لو صغيره انا مقدرش اعيش من غيرك يا ملاكى اتمنى تقبلى اعتزارى</p>
-            <div class="btn-container">
-                <button class="btn-yes" onclick="celebrate()">سامحتك ❤️</button>
-                <button class="btn-no" id="noBtn">مش مسامحة 😤</button>
+            <h1 id="headerText">
+                اسف على اى حاجه وحشه عملتها وزعلتك حتى لو صغيره انا مقدرش اعيش من غيرك يا ملاكى اتمنى تقبلى اعتزارى
+            </h1>
+            
+            <div class="buttons-wrapper" id="btnContainer">
+                <button id="yesBtn" class="btn" onclick="showLove()">سامحتك ❤️</button>
+                <button id="noBtn" class="btn" onmouseover="moveButton()" onclick="moveButton()" ontouchstart="moveButton()">مش مسامحة 😤</button>
             </div>
         </div>
 
-        <div id="success">
-            <div style="font-size: 4.5rem; margin-bottom: 10px;">💋✨🫂</div>
-            <h1 style="color: #2a9d8f;">وييييي 🥳</h1>
-            <p>كنت عارف انك هتسامحينى عشان انتى اجمل وارق بنوته فى الدنيا كلها بحبك اويييي مووواااه 💋💋💋 🫂🫂🫂</p>
+        <div id="message">
+            <div class="success-text">وييييي 🥳</div>
+            <img src="https://files.catbox.moe/zijbrk.gif" alt="Forgiveness GIF" class="success-gif">
+            <div class="final-text">
+                كنت عارف انك هتسامحينى عشان انتى اجمل وارق بنوته فى الدنيا كلها بحبك اويييي مووواااه 💋💋💋 🫂🫂🫂
+            </div>
         </div>
     </div>
 
     <audio id="yippee" src="https://www.myinstants.com/media/sounds/yippee-tbh.mp3"></audio>
 
     <script>
-        const noBtn = document.getElementById('noBtn');
-
-        function moveButton(e) {
-            const maxX = window.innerWidth - noBtn.offsetWidth - 30;
-            const maxY = window.innerHeight - noBtn.offsetHeight - 30;
-
-            const newX = Math.max(30, Math.random() * maxX);
-            const newY = Math.max(30, Math.random() * maxY);
-
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = newX + 'px';
-            noBtn.style.top = newY + 'px';
-        }
-
-        noBtn.addEventListener('mouseover', moveButton);
-        noBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            moveButton();
-        });
-
-        function celebrate() {
+        function showLove() {
             document.getElementById("yippee").play();
-            document.getElementById("ask").style.display = "none";
-            document.getElementById("noBtn").style.display = "none";
-            document.getElementById("success").style.display = "block";
+            document.getElementById('askContainer').style.display = 'none';
+            document.getElementById('message').style.display = 'block';
             
-            const items = ['✨', '❤️', '💖', '🌸', '💋', '🫂'];
-            for (let i = 0; i < 100; i++) {
+            // إضافة تأثير القلوب والقبلات والحضن المتطاير
+            const items = ['✨', '❤️', '💖', '💋', '🫂'];
+            for (let i = 0; i < 80; i++) {
                 setTimeout(() => {
                     const p = document.createElement('div');
                     p.className = 'particle';
@@ -113,6 +150,22 @@
                     setTimeout(() => p.remove(), 2500);
                 }, i * 30);
             }
+        }
+
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            btn.style.position = 'fixed';
+            
+            // حساب المسافة لضمان عدم الخروج من الشاشة
+            const padding = 50;
+            const maxX = window.innerWidth - btn.offsetWidth - padding;
+            const maxY = window.innerHeight - btn.offsetHeight - padding;
+            
+            const newX = Math.max(padding, Math.floor(Math.random() * maxX));
+            const newY = Math.max(padding, Math.floor(Math.random() * maxY));
+            
+            btn.style.left = newX + 'px';
+            btn.style.top = newY + 'px';
         }
     </script>
 </body>
